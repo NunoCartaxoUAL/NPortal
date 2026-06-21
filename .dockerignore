@@ -1,0 +1,6 @@
+.git
+dist
+node_modules
+prompt.md
+token.md
+npm-debug.log*

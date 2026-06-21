@@ -1,0 +1,5 @@
+services:
+  nportal:
+    build: .
+    ports:
+      - "4174:80"
