@@ -115,6 +115,57 @@ function Checklist({ items }) {
   );
 }
 
+function ClassDiagram({ classes, relations }) {
+  return (
+    <div className="diagram-block">
+      <div className="class-grid">
+        {classes.map((classItem) => (
+          <section className="class-box" key={classItem.name}>
+            <h3>{classItem.name}</h3>
+            <ul>
+              {classItem.fields.map((field) => (
+                <li key={field}>{field}</li>
+              ))}
+            </ul>
+            <ul>
+              {classItem.methods.map((method) => (
+                <li key={method}>{method}</li>
+              ))}
+            </ul>
+          </section>
+        ))}
+      </div>
+      <div className="relation-list">
+        {relations.map((relation) => (
+          <span key={relation}>{relation}</span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ErdDiagram({ entities, relations }) {
+  return (
+    <div className="diagram-block">
+      <div className="entity-grid">
+        {entities.map((entity) => (
+          <section className="entity-box" key={entity.name}>
+            <h3>{entity.name}</h3>
+            {entity.fields.map((field) => (
+              <span key={field}>{field}</span>
+            ))}
+          </section>
+        ))}
+      </div>
+      <div className="relation-list">
+        {relations.map((relation) => (
+          <span key={relation}>{relation}</span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function VisualCard({ visual }) {
   const visualBody = {
     bars: <Bars rows={visual.rows} />,
@@ -124,7 +175,9 @@ function VisualCard({ visual }) {
     timeline: <Timeline items={visual.items} />,
     chips: <Chips items={visual.items} />,
     ladder: <Ladder items={visual.items} />,
-    checklist: <Checklist items={visual.items} />
+    checklist: <Checklist items={visual.items} />,
+    classDiagram: <ClassDiagram classes={visual.classes} relations={visual.relations} />,
+    erd: <ErdDiagram entities={visual.entities} relations={visual.relations} />
   }[visual.type];
 
   return (
