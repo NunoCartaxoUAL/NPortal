@@ -1,0 +1,8 @@
+node_modules
+dist
+.env
+.env.local
+prompt.md
+token.md
+npm-debug.log*
+.DS_Store
