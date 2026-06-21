@@ -1,5 +1,6 @@
 import { BriefcaseBusiness, FolderKanban, Server } from 'lucide-react';
 import React from 'react';
+import { content } from '../data/content.js';
 
 const views = [
   { id: 'profile', label: 'Profile', icon: BriefcaseBusiness },
@@ -7,7 +8,10 @@ const views = [
   { id: 'homelab', label: 'Homelab', icon: Server }
 ];
 
-export default function Sidebar({ activeView, onViewChange }) {
+export default function Sidebar({ activeView, language, onLanguageToggle, onViewChange }) {
+  const labels = content[language].nav;
+  const nextLanguage = language === 'en' ? '日本語' : 'English';
+
   return (
     <aside className="sidebar" aria-label="Primary navigation">
       <div className="logo" aria-label="NPortal">
@@ -20,13 +24,22 @@ export default function Sidebar({ activeView, onViewChange }) {
             key={id}
             onClick={() => onViewChange(id)}
             type="button"
-            aria-label={label}
-            title={label}
+            aria-label={labels[id] ?? label}
+            title={labels[id] ?? label}
           >
             <Icon size={22} strokeWidth={1.8} aria-hidden="true" />
           </button>
         ))}
       </nav>
+      <button
+        className="language-toggle"
+        onClick={onLanguageToggle}
+        type="button"
+        aria-label={`Switch language to ${nextLanguage}`}
+        title={`Switch language to ${nextLanguage}`}
+      >
+        {language === 'en' ? 'JA' : 'EN'}
+      </button>
     </aside>
   );
 }
