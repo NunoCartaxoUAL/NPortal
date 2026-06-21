@@ -3,6 +3,7 @@ import Sidebar from './components/Sidebar.jsx';
 import HomelabView from './views/HomelabView.jsx';
 import ProfileView from './views/ProfileView.jsx';
 import ProjectsView from './views/ProjectsView.jsx';
+import TestView from './views/TestView.jsx';
 
 function getInitialLanguage() {
   const storedLanguage = window.localStorage.getItem('nportal-language');
@@ -25,7 +26,8 @@ export default function App() {
   const activePage = {
     profile: <ProfileView language={language} />,
     projects: <ProjectsView language={language} />,
-    homelab: <HomelabView language={language} />
+    homelab: <HomelabView language={language} />,
+    test: <TestView language={language} />
   }[activeView];
 
   function toggleLanguage() {

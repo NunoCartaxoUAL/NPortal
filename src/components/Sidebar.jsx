@@ -1,11 +1,12 @@
-import { BriefcaseBusiness, FolderKanban, Server } from 'lucide-react';
+import { BriefcaseBusiness, ChartNoAxesCombined, FolderKanban, Server } from 'lucide-react';
 import React from 'react';
 import { content } from '../data/content.js';
 
 const views = [
   { id: 'profile', label: 'Profile', icon: BriefcaseBusiness },
   { id: 'projects', label: 'Projects', icon: FolderKanban },
-  { id: 'homelab', label: 'Homelab', icon: Server }
+  { id: 'homelab', label: 'Homelab', icon: Server },
+  { id: 'test', label: 'Test', icon: ChartNoAxesCombined }
 ];
 
 export default function Sidebar({ activeView, language, onLanguageToggle, onViewChange }) {
