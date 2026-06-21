@@ -36,6 +36,42 @@ function CvEntry({ entry }) {
   );
 }
 
+function LanguageLevels({ levels }) {
+  if (!levels?.length) {
+    return null;
+  }
+
+  return (
+    <section className="language-panel" aria-label="Language levels">
+      {levels.map((level) => (
+        <div className="language-row" key={level.label}>
+          <div>
+            <strong>{level.label}</strong>
+            <span>{level.detail}</span>
+          </div>
+          <div className="language-meter" aria-hidden="true">
+            <span style={{ width: `${level.value}%` }} />
+          </div>
+        </div>
+      ))}
+    </section>
+  );
+}
+
+function CertificationList({ certifications }) {
+  if (!certifications?.length) {
+    return null;
+  }
+
+  return (
+    <section className="cert-panel" aria-label="Certifications">
+      {certifications.map((certification) => (
+        <span key={certification}>{certification}</span>
+      ))}
+    </section>
+  );
+}
+
 export default function ProfileView({ language }) {
   const profile = content[language].profile;
   const tabs = useMemo(() => profile.sections.map((section) => section.title), [profile.sections]);
@@ -69,11 +105,15 @@ export default function ProfileView({ language }) {
       >
         <h2>{activeSection.title}</h2>
         {activeSection.entries?.length ? (
-          <div className="cv-list">
-            {activeSection.entries.map((entry) => (
-              <CvEntry entry={entry} key={entry.title} />
-            ))}
-          </div>
+          <>
+            <LanguageLevels levels={activeSection.levels} />
+            <CertificationList certifications={activeSection.certifications} />
+            <div className="cv-list">
+              {activeSection.entries.map((entry) => (
+                <CvEntry entry={entry} key={entry.title} />
+              ))}
+            </div>
+          </>
         ) : (
           activeSection.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)
         )}

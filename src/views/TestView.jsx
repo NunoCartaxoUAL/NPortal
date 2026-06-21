@@ -166,6 +166,66 @@ function ErdDiagram({ entities, relations }) {
   );
 }
 
+function Flowchart({ nodes, edges }) {
+  return (
+    <div className="formal-diagram">
+      <div className="flowchart-grid">
+        {nodes.map((node) => (
+          <section className="flow-node" key={node.id}>
+            <span>{node.id}</span>
+            <strong>{node.label}</strong>
+          </section>
+        ))}
+      </div>
+      <div className="relation-list">
+        {edges.map((edge) => (
+          <span key={edge}>{edge}</span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function SequenceDiagram({ actors, messages }) {
+  return (
+    <div className="sequence-diagram">
+      <div className="sequence-actors">
+        {actors.map((actor) => (
+          <strong key={actor}>{actor}</strong>
+        ))}
+      </div>
+      <div className="sequence-lines">
+        {messages.map((message) => (
+          <span key={message}>{message}</span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ComponentMap({ groups }) {
+  return (
+    <div className="component-map">
+      {groups.map((group) => (
+        <section key={group.name}>
+          <h3>{group.name}</h3>
+          {group.items.map((item) => (
+            <span key={item}>{item}</span>
+          ))}
+        </section>
+      ))}
+    </div>
+  );
+}
+
+function PlantUmlBlock({ lines }) {
+  return (
+    <pre className="plantuml-block">
+      {lines.join('\n')}
+    </pre>
+  );
+}
+
 function VisualCard({ visual }) {
   const visualBody = {
     bars: <Bars rows={visual.rows} />,
@@ -177,7 +237,11 @@ function VisualCard({ visual }) {
     ladder: <Ladder items={visual.items} />,
     checklist: <Checklist items={visual.items} />,
     classDiagram: <ClassDiagram classes={visual.classes} relations={visual.relations} />,
-    erd: <ErdDiagram entities={visual.entities} relations={visual.relations} />
+    erd: <ErdDiagram entities={visual.entities} relations={visual.relations} />,
+    flowchart: <Flowchart nodes={visual.nodes} edges={visual.edges} />,
+    sequence: <SequenceDiagram actors={visual.actors} messages={visual.messages} />,
+    componentMap: <ComponentMap groups={visual.groups} />,
+    plantuml: <PlantUmlBlock lines={visual.lines} />
   }[visual.type];
 
   return (
