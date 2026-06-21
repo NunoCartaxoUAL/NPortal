@@ -20,13 +20,16 @@ function CvEntry({ entry }) {
   return (
     <section className="cv-entry">
       <div className="cv-entry-head">
-        <h3>{entry.title}</h3>
-        <span>{entry.meta}</span>
+        <div>
+          <h3>{entry.title}</h3>
+          <span>{entry.organization} - {entry.location}</span>
+        </div>
+        <time>{entry.date}</time>
       </div>
       <p>{entry.summary}</p>
-      {entry.points?.length ? (
+      {entry.highlights?.length ? (
         <ul>
-          {entry.points.map((point) => (
+          {entry.highlights.map((point) => (
             <li key={point}>{point}</li>
           ))}
         </ul>
@@ -66,9 +69,30 @@ function CertificationList({ certifications }) {
   return (
     <section className="cert-panel" aria-label="Certifications">
       {certifications.map((certification) => (
-        <span key={certification}>{certification}</span>
+        <span key={certification.title}>
+          <time>{certification.date}</time>
+          <strong>{certification.title}</strong>
+          <em>{certification.issuer}</em>
+        </span>
       ))}
     </section>
+  );
+}
+
+function ProfileCards({ cards }) {
+  if (!cards?.length) {
+    return null;
+  }
+
+  return (
+    <div className="profile-card-grid">
+      {cards.map((card) => (
+        <section className="profile-card" key={card.title}>
+          <h3>{card.title}</h3>
+          <p>{card.text}</p>
+        </section>
+      ))}
+    </div>
   );
 }
 
@@ -104,19 +128,17 @@ export default function ProfileView({ language }) {
         aria-labelledby={`tab-${activeSection.title}`}
       >
         <h2>{activeSection.title}</h2>
+        {activeSection.intro ? <p>{activeSection.intro}</p> : null}
+        <LanguageLevels levels={activeSection.levels} />
+        <CertificationList certifications={activeSection.certifications} />
+        <ProfileCards cards={activeSection.cards} />
         {activeSection.entries?.length ? (
-          <>
-            <LanguageLevels levels={activeSection.levels} />
-            <CertificationList certifications={activeSection.certifications} />
             <div className="cv-list">
               {activeSection.entries.map((entry) => (
                 <CvEntry entry={entry} key={entry.title} />
               ))}
             </div>
-          </>
-        ) : (
-          activeSection.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)
-        )}
+        ) : null}
       </article>
     </section>
   );
