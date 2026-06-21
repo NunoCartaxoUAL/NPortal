@@ -661,11 +661,91 @@ p {
   border: 1px solid var(--grey-200);
 }
 
+.project-image-button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  cursor: zoom-in;
+}
+
+.project-image-button:hover img,
+.project-image-button:focus-visible img {
+  border-color: var(--grey-950);
+}
+
+.project-image-button:focus-visible {
+  outline: 2px solid var(--grey-950);
+  outline-offset: 2px;
+}
+
 .project-media-card figcaption {
   color: var(--grey-700);
   font-size: 0.72rem;
   font-weight: 750;
   line-height: 1.2;
+}
+
+.image-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: 44px;
+  background: rgba(43, 43, 43, 0.86);
+  cursor: zoom-out;
+}
+
+.image-lightbox figure {
+  display: grid;
+  gap: 10px;
+  max-width: min(1180px, 100%);
+  max-height: 100%;
+  margin: 0;
+  cursor: default;
+}
+
+.image-lightbox img {
+  display: block;
+  max-width: 100%;
+  max-height: calc(100vh - 118px);
+  object-fit: contain;
+  background: var(--surface);
+  border: 1px solid var(--grey-050);
+}
+
+.image-lightbox figcaption {
+  color: var(--grey-050);
+  font-size: 0.82rem;
+  font-weight: 750;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  background: var(--surface);
+  border: 1px solid var(--grey-950);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus-visible {
+  background: var(--grey-950);
+  color: var(--grey-050);
+  outline: none;
 }
 
 .project-diagram-card .class-grid,
@@ -1224,6 +1304,14 @@ p {
 
   .project-media-rail {
     order: 2;
+  }
+
+  .image-lightbox {
+    padding: 54px 14px 20px;
+  }
+
+  .image-lightbox img {
+    max-height: calc(100vh - 106px);
   }
 
   .cv-entry-head {

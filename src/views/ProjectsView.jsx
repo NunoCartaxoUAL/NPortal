@@ -3,7 +3,7 @@ import { DiagramBody } from '../components/DiagramCard.jsx';
 import SectionTabs from '../components/SectionTabs.jsx';
 import { content } from '../data/content.js';
 
-function ProjectCaseStudy({ project }) {
+function ProjectCaseStudy({ project, onImageOpen }) {
   return (
     <div className="project-layout">
       <div className="project-case">
@@ -77,18 +77,20 @@ function ProjectCaseStudy({ project }) {
 
       <aside className="project-media-rail" aria-label={`${project.title} visuals`}>
         {project.media.map((item) => (
-          <ProjectMedia item={item} key={`${item.type}-${item.title}`} />
+          <ProjectMedia item={item} key={`${item.type}-${item.title}`} onImageOpen={onImageOpen} />
         ))}
       </aside>
     </div>
   );
 }
 
-function ProjectMedia({ item }) {
+function ProjectMedia({ item, onImageOpen }) {
   if (item.type === 'image') {
     return (
       <figure className="project-media-card">
-        <img src={item.src} alt={item.alt} />
+        <button className="project-image-button" type="button" onClick={() => onImageOpen(item)}>
+          <img src={item.src} alt={item.alt} />
+        </button>
         <figcaption>{item.title}</figcaption>
       </figure>
     );
@@ -102,10 +104,46 @@ function ProjectMedia({ item }) {
   );
 }
 
+function ImageLightbox({ image, onClose }) {
+  useEffect(() => {
+    function handleKeyDown(event) {
+      if (event.key === 'Escape') {
+        onClose();
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [onClose]);
+
+  if (!image) {
+    return null;
+  }
+
+  return (
+    <div
+      className="image-lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label={image.title}
+      onClick={onClose}
+    >
+      <button className="lightbox-close" type="button" onClick={onClose} aria-label="Close image">
+        x
+      </button>
+      <figure onClick={(event) => event.stopPropagation()}>
+        <img src={image.src} alt={image.alt} />
+        <figcaption>{image.title}</figcaption>
+      </figure>
+    </div>
+  );
+}
+
 export default function ProjectsView({ language }) {
   const projects = content[language].projects;
   const projectTabs = projects.sections.map((project) => project.title);
   const [activeProject, setActiveProject] = useState(projectTabs[0]);
+  const [lightboxImage, setLightboxImage] = useState(null);
   const selectedProject =
     projects.sections.find((project) => project.title === activeProject) ?? projects.sections[0];
 
@@ -114,6 +152,10 @@ export default function ProjectsView({ language }) {
       setActiveProject(projectTabs[0]);
     }
   }, [activeProject, projectTabs]);
+
+  useEffect(() => {
+    setLightboxImage(null);
+  }, [activeProject, language]);
 
   return (
     <section className="page-section" aria-labelledby="projects-title">
@@ -135,11 +177,12 @@ export default function ProjectsView({ language }) {
       >
         <h2>{selectedProject.title}</h2>
         {selectedProject.objective ? (
-          <ProjectCaseStudy project={selectedProject} />
+          <ProjectCaseStudy project={selectedProject} onImageOpen={setLightboxImage} />
         ) : (
           selectedProject.paragraphs?.map((paragraph) => <p key={paragraph}>{paragraph}</p>)
         )}
       </article>
+      <ImageLightbox image={lightboxImage} onClose={() => setLightboxImage(null)} />
     </section>
   );
 }
