@@ -138,10 +138,10 @@ export const content = {
             'SteamOS branch replaces the control window with F8 area selection, F9 OCR refresh, F10 quit, and a tiny status strip.'
           ],
           stackCards: [
-            { title: 'Shell', text: 'Electron owns windows, hotkeys, capture, logging, and IPC.' },
-            { title: 'Interface', text: 'React/Vite renders overlay text, status, and selector states.' },
-            { title: 'OCR', text: 'Python worker runs PaddleOCR and reading extraction locally.' },
-            { title: 'Language Data', text: 'JMdict/KANJIDIC-backed data supports reading and dictionary output.' }
+            { title: 'Electron', text: 'desktop shell, windows, hotkeys, capture, logging, and IPC.' },
+            { title: 'React/Vite', text: 'overlay text, status display, and selector state UI.' },
+            { title: 'Python/PaddleOCR', text: 'local OCR worker and image text extraction.' },
+            { title: 'fugashi/pykakasi', text: 'Japanese reading extraction and dictionary support.' }
           ],
           flow: ['Select area', 'Save bounds', 'Capture crop', 'OCR worker', 'Reading parse', 'Overlay render'],
           strengths: [
@@ -217,10 +217,10 @@ export const content = {
             'Distance-scaled polling reduces unnecessary checks when the user is far from the destination.'
           ],
           stackCards: [
-            { title: 'UI', text: 'Kotlin and Jetpack Compose build a dense watch-first setup flow.' },
-            { title: 'Map', text: 'osmdroid/OpenStreetMap handles destination picking and radius display.' },
-            { title: 'Search', text: 'Android Geocoder resolves typed locations into coordinates.' },
-            { title: 'Tracking', text: 'Foreground service runs location checks and vibration actions.' }
+            { title: 'Kotlin/Compose', text: 'dense Wear OS setup, saved places, and tracking UI.' },
+            { title: 'osmdroid/OpenStreetMap', text: 'destination picking and radius display.' },
+            { title: 'Android Geocoder', text: 'typed place search and coordinate resolution.' },
+            { title: 'TripService', text: 'foreground tracking, distance checks, and vibration.' }
           ],
           flow: ['Pick place', 'Set radius', 'Start service', 'Scale polling', 'Detect arrival', 'Vibrate'],
           strengths: [
@@ -301,10 +301,10 @@ export const content = {
             'Static build target that can be previewed locally, served from Docker, and deployed through Vercel.'
           ],
           stackCards: [
-            { title: 'Frontend', text: 'React 19 renders each view from a shared content file.' },
-            { title: 'Build', text: 'Vite produces a static bundle for preview, Docker, or Vercel.' },
-            { title: 'UI', text: 'CSS keeps a notebook-like CV feel while adding denser case-study layouts.' },
-            { title: 'Deploy', text: 'Development and Vercel branches can carry the same verified build.' }
+            { title: 'React 19', text: 'view rendering from the shared bilingual content model.' },
+            { title: 'Vite', text: 'static build output for preview, Docker, and Vercel.' },
+            { title: 'CSS', text: 'notebook-like CV layout and compact case-study pages.' },
+            { title: 'Docker/Vercel', text: 'local production review and deploy targets.' }
           ],
           flow: ['Edit content', 'Build Vite', 'Preview site', 'Commit changes', 'Push development', 'Push vercel'],
           strengths: [
@@ -585,10 +585,10 @@ export const content = {
             'SteamOSブランチでは F8 範囲選択、F9 OCR更新、F10終了、小さなステータス表示に整理。'
           ],
           stackCards: [
-            { title: 'Shell', text: 'Electron がウィンドウ、ホットキー、キャプチャ、ログ、IPCを担当。' },
-            { title: 'Interface', text: 'React/Vite がオーバーレイ、状態表示、範囲選択を表示。' },
-            { title: 'OCR', text: 'Python worker が PaddleOCR と読み抽出をローカルで実行。' },
-            { title: 'Language Data', text: 'JMdict/KANJIDIC 系データで読みと辞書情報を補助。' }
+            { title: 'Electron', text: 'ウィンドウ、ホットキー、キャプチャ、ログ、IPC。' },
+            { title: 'React/Vite', text: 'オーバーレイ、状態表示、範囲選択UI。' },
+            { title: 'Python/PaddleOCR', text: 'ローカルOCR worker と画像内テキスト抽出。' },
+            { title: 'fugashi/pykakasi', text: '日本語の読み抽出と辞書補助。' }
           ],
           flow: ['範囲選択', '座標保存', '画像取得', 'OCR worker', '読み抽出', 'overlay表示'],
           strengths: [
@@ -649,10 +649,10 @@ export const content = {
             '距離に応じた確認間隔で、遠い時の不要なGPS確認を減らす。'
           ],
           stackCards: [
-            { title: 'UI', text: 'Kotlin と Jetpack Compose で時計向けの画面を構成。' },
-            { title: 'Map', text: 'osmdroid/OpenStreetMap で目的地と半径を表示。' },
-            { title: 'Search', text: 'Android Geocoder で入力した場所を座標に変換。' },
-            { title: 'Tracking', text: 'Foreground service が位置確認と振動を担当。' }
+            { title: 'Kotlin/Compose', text: 'Wear OS 向けの設定、保存先、追跡画面。' },
+            { title: 'osmdroid/OpenStreetMap', text: '目的地選択と半径表示。' },
+            { title: 'Android Geocoder', text: '場所検索と座標変換。' },
+            { title: 'TripService', text: 'フォアグラウンド追跡、距離確認、振動。' }
           ],
           flow: ['場所選択', '半径設定', 'service開始', '確認間隔調整', '到着判定', '振動'],
           strengths: [
@@ -708,10 +708,10 @@ export const content = {
             'Vite の静的ビルド、ローカルプレビュー、Docker、Vercel デプロイに対応。'
           ],
           stackCards: [
-            { title: 'Frontend', text: 'React 19 が共有 content file から各ページを表示。' },
-            { title: 'Build', text: 'Vite が静的bundleを生成し、preview/Docker/Vercelで確認可能。' },
-            { title: 'UI', text: 'CVらしい紙面感と、密度のある case study layout を両立。' },
-            { title: 'Deploy', text: 'development と vercel ブランチに同じ検証済みビルドを反映。' }
+            { title: 'React 19', text: '共有二言語コンテンツから各ページを表示。' },
+            { title: 'Vite', text: 'preview、Docker、Vercel 向けの静的ビルド。' },
+            { title: 'CSS', text: 'ノート風CV画面とコンパクトな事例ページ。' },
+            { title: 'Docker/Vercel', text: 'ローカル本番確認とデプロイ先。' }
           ],
           flow: ['content編集', 'Vite build', 'preview確認', 'commit', 'development push', 'vercel push'],
           strengths: [
