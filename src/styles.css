@@ -589,12 +589,16 @@ p {
   margin: 0 auto;
 }
 
+.project-summary {
+  margin-bottom: calc(var(--paper-line) * 2);
+}
+
 .project-summary p {
   max-width: 72ch;
-  margin-bottom: calc(var(--paper-line) * 2);
-  color: var(--grey-950);
+  margin-bottom: 0;
+  color: var(--grey-700);
   font-size: 1rem;
-  font-weight: 750;
+  font-weight: 400;
   line-height: var(--paper-line);
 }
 
