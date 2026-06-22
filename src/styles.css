@@ -828,6 +828,10 @@ p {
   cursor: default;
 }
 
+.diagram-lightbox figure {
+  width: min(1400px, 96vw);
+}
+
 .image-lightbox img {
   display: block;
   max-width: 100%;
@@ -835,6 +839,13 @@ p {
   object-fit: contain;
   background: var(--surface);
   border: 1px solid var(--grey-050);
+}
+
+.diagram-lightbox img {
+  width: 100%;
+  min-height: min(680px, calc(100vh - 118px));
+  padding: 24px;
+  object-fit: contain;
 }
 
 .image-lightbox figcaption {

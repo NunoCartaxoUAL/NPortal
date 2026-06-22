@@ -112,6 +112,8 @@ function ProjectMedia({ item, onImageOpen }) {
 }
 
 function ImageLightbox({ image, onClose }) {
+  const isDiagram = image?.src?.endsWith('.svg');
+
   useEffect(() => {
     function handleKeyDown(event) {
       if (event.key === 'Escape') {
@@ -129,7 +131,7 @@ function ImageLightbox({ image, onClose }) {
 
   return (
     <div
-      className="image-lightbox"
+      className={isDiagram ? 'image-lightbox diagram-lightbox' : 'image-lightbox'}
       role="dialog"
       aria-modal="true"
       aria-label={image.title}
