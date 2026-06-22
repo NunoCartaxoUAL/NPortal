@@ -172,40 +172,6 @@ export const content = {
               title: 'Area selection',
               src: '/project-media/giina/area-selector.png',
               alt: 'Giina selecting a screen area for OCR'
-            },
-            {
-              type: 'image',
-              title: 'OCR flowchart',
-              src: '/project-media/giina/ocr-flow.svg',
-              alt: 'Giina OCR flowchart'
-            },
-            {
-              type: 'image',
-              title: 'Architecture map',
-              src: '/project-media/giina/architecture.svg',
-              alt: 'Giina architecture diagram'
-            },
-            {
-              type: 'classDiagram',
-              title: 'Class diagram',
-              classes: [
-                { name: 'OverlayApp', fields: ['windows', 'hotkeys', 'state'], methods: ['capture()', 'broadcast()'] },
-                { name: 'CaptureArea', fields: ['x', 'y', 'width', 'height'], methods: ['normalize()', 'persist()'] },
-                { name: 'OcrWorker', fields: ['python', 'dictionary'], methods: ['request()', 'parseLines()'] }
-              ],
-              relations: ['OverlayApp -> CaptureArea', 'OverlayApp -> OcrWorker', 'OcrWorker -> OverlayApp']
-            },
-            {
-              type: 'flowchart',
-              title: 'OCR pipeline',
-              nodes: [
-                { id: '1', label: 'screen area' },
-                { id: '2', label: 'image crop' },
-                { id: '3', label: 'OCR lines' },
-                { id: '4', label: 'reading parse' },
-                { id: '5', label: 'overlay render' }
-              ],
-              edges: ['screen area -> image crop', 'image crop -> OCR lines', 'OCR lines -> reading parse', 'reading parse -> overlay render']
             }
           ]
         },
@@ -269,39 +235,6 @@ export const content = {
               title: 'Tracking view',
               src: '/project-media/laila/tracking.png',
               alt: 'Laila tracking GPS screen'
-            },
-            {
-              type: 'image',
-              title: 'Tracking flowchart',
-              src: '/project-media/laila/tracking-flow.svg',
-              alt: 'Laila tracking flowchart'
-            },
-            {
-              type: 'image',
-              title: 'Tracking sequence',
-              src: '/project-media/laila/tracking-sequence.svg',
-              alt: 'Laila tracking sequence diagram'
-            },
-            {
-              type: 'sequence',
-              title: 'Tracking sequence',
-              actors: ['User', 'Compose', 'TripService', 'Vibrator'],
-              messages: [
-                'User -> Compose: start trip',
-                'Compose -> TripService: destination + radius',
-                'TripService -> Compose: distance update',
-                'TripService -> Vibrator: arrived'
-              ]
-            },
-            {
-              type: 'erd',
-              title: 'Data sketch',
-              entities: [
-                { name: 'SavedLocation', fields: ['id', 'name', 'lat', 'lon', 'radius'] },
-                { name: 'TripState', fields: ['phase', 'distance', 'provider'] },
-                { name: 'TrackingRule', fields: ['radius', 'interval', 'arrived'] }
-              ],
-              relations: ['SavedLocation -> TripState', 'TripState -> TrackingRule']
             }
           ]
         },
@@ -313,15 +246,15 @@ export const content = {
           platforms: 'Web, deployed in Docker or Vercel.',
           meta: ['Static React/Vite site', 'Bilingual content', 'Docker and Vercel preview path'],
           body: [
-            'NPortal is the portfolio system behind this site. It keeps CV content, project case studies, screenshots, diagrams, and homelab notes in one bilingual content model instead of spreading the same information through separate static pages.',
+            'NPortal is the portfolio system behind this site. It keeps CV content, project case studies, screenshots, and homelab notes in one bilingual content model instead of spreading the same information through separate static pages.',
             'The frontend uses **React 19**, reusable view components, **Vite** for static builds, and plain CSS for a restrained CV/paper visual language. The same branch can be checked with `npm run build`, reviewed through **Docker**, and deployed through the Vercel branch.',
             'The project demonstrates content architecture, presentation discipline, bilingual structure, and local deployment workflow. Its limits are deliberate: screenshots are static assets, Japanese copy needs a final native-level polish pass, and there is no CMS or analytics backend.'
           ],
           description:
-            'NPortal is the site you are reading: a React/Vite portfolio that keeps CV content, project case studies, diagrams, and homelab notes in one structured bilingual content model.',
+            'NPortal is the site you are reading: a React/Vite portfolio that keeps CV content, project case studies, screenshots, and homelab notes in one structured bilingual content model.',
           highlights: [
             'Data-driven English/Japanese content with browser-language detection and manual language toggle.',
-            'Reusable CV rows, project case study sections, media diagrams, and homelab tabs.',
+            'Reusable CV rows, project case study sections, screenshot rails, and homelab tabs.',
             'Static build target that can be previewed locally, served from Docker, and deployed through Vercel.'
           ],
           stackCards: [
@@ -333,58 +266,15 @@ export const content = {
           flow: ['Edit content', 'Build Vite', 'Preview site', 'Commit changes', 'Push development', 'Push vercel'],
           strengths: [
             'Portfolio content stays centralized and easy to revise.',
-            'Project pages can accept a dynamic number of images and diagrams.',
-            'The same components support visual testing cards and live case-study diagrams.'
+            'Project pages can accept a dynamic number of screenshots.',
+            'The same content model supports CV, projects, homelab notes, and test pages.'
           ],
           limits: [
             'Screenshots are static assets and should be refreshed when the layout changes materially.',
             'Japanese copy is concise and should be reviewed by a fluent speaker before employer use.',
             'The site is intentionally static; no backend analytics or CMS are included.'
           ],
-          media: [
-            {
-              type: 'image',
-              title: 'Release flowchart',
-              src: '/project-media/nportal/release-flow.svg',
-              alt: 'NPortal release flowchart'
-            },
-            {
-              type: 'image',
-              title: 'Component map',
-              src: '/project-media/nportal/component-map.svg',
-              alt: 'NPortal component map diagram'
-            },
-            {
-              type: 'componentMap',
-              title: 'Component map',
-              groups: [
-                { name: 'Shell', items: ['App', 'Sidebar', 'language state'] },
-                { name: 'Views', items: ['Profile', 'Projects', 'Homelab'] },
-                { name: 'Data', items: ['content.js', 'project media', 'tabs'] }
-              ]
-            },
-            {
-              type: 'flowchart',
-              title: 'Release flow',
-              nodes: [
-                { id: 'A', label: 'organize prompt' },
-                { id: 'B', label: 'implement views' },
-                { id: 'C', label: 'build preview' },
-                { id: 'D', label: 'push branches' }
-              ],
-              edges: ['A -> B', 'B -> C', 'C -> D']
-            },
-            {
-              type: 'classDiagram',
-              title: 'View model',
-              classes: [
-                { name: 'Content', fields: ['profile', 'projects', 'homelab'], methods: ['selectLanguage()'] },
-                { name: 'ProjectCase', fields: ['status', 'platforms', 'media'], methods: ['renderRail()'] },
-                { name: 'DiagramCard', fields: ['type', 'title'], methods: ['renderBody()'] }
-              ],
-              relations: ['Content -> ProjectCase', 'ProjectCase -> DiagramCard']
-            }
-          ]
+          media: []
         }
       ]
     },
@@ -424,89 +314,9 @@ export const content = {
     },
     test: {
       title: 'Test',
-      heading: 'Architecture and project diagrams',
-      summary: 'A compact board of software-engineering visuals used across the portal: flows, class sketches, sequence diagrams, ERD-style models, component maps, and project-fit comparisons.',
-      visuals: [
-        {
-          type: 'flowchart',
-          title: 'Portfolio release flow',
-          nodes: [
-            { id: '1', label: 'content update' },
-            { id: '2', label: 'component render' },
-            { id: '3', label: 'vite build' },
-            { id: '4', label: 'branch deploy' }
-          ],
-          edges: ['1 -> 2', '2 -> 3', '3 -> 4']
-        },
-        {
-          type: 'sequence',
-          title: 'Giina OCR sequence',
-          actors: ['User', 'Electron', 'Worker', 'Overlay'],
-          messages: ['User -> Electron: F9', 'Electron -> Worker: image crop', 'Worker -> Electron: OCR lines', 'Electron -> Overlay: readings']
-        },
-        {
-          type: 'classDiagram',
-          title: 'NPortal class sketch',
-          classes: [
-            { name: 'App', fields: ['activeView', 'language'], methods: ['toggleLanguage()'] },
-            { name: 'ProjectsView', fields: ['activeProject'], methods: ['renderCaseStudy()'] },
-            { name: 'DiagramCard', fields: ['visual'], methods: ['render()'] }
-          ],
-          relations: ['App -> ProjectsView', 'ProjectsView -> DiagramCard']
-        },
-        {
-          type: 'erd',
-          title: 'Laila data model',
-          entities: [
-            { name: 'SavedLocation', fields: ['id', 'name', 'coordinate', 'radius'] },
-            { name: 'TripState', fields: ['phase', 'distance', 'provider'] },
-            { name: 'VibrationPattern', fields: ['name', 'timings'] }
-          ],
-          relations: ['SavedLocation -> TripState', 'TripState -> VibrationPattern']
-        },
-        {
-          type: 'componentMap',
-          title: 'View composition',
-          groups: [
-            { name: 'Navigation', items: ['Sidebar', 'SectionTabs'] },
-            { name: 'Pages', items: ['Profile', 'Projects', 'Homelab', 'Test'] },
-            { name: 'Visuals', items: ['Flowchart', 'Sequence', 'Class', 'ERD'] }
-          ]
-        },
-        {
-          type: 'matrix',
-          title: 'Project fit',
-          columns: ['Japan', 'UX', 'Systems'],
-          rows: [
-            { label: 'Giina', values: [3, 3, 3] },
-            { label: 'Laila', values: [1, 3, 3] },
-            { label: 'NPortal', values: [2, 2, 2] },
-            { label: 'Homelab', values: [1, 1, 3] }
-          ]
-        },
-        {
-          type: 'bars',
-          title: 'Diagram coverage',
-          rows: [
-            { label: 'Flowcharts', value: 100 },
-            { label: 'Sequences', value: 70 },
-            { label: 'Models', value: 65 },
-            { label: 'Maps', value: 80 }
-          ]
-        },
-        {
-          type: 'plantuml',
-          title: 'PlantUML smoke test',
-          lines: [
-            '@startuml',
-            'actor Visitor',
-            'Visitor -> NPortal: open project page',
-            'NPortal -> MediaRail: render screenshots + SVG diagrams',
-            'MediaRail --> Visitor: zoomable evidence',
-            '@enduml'
-          ]
-        }
-      ]
+      heading: 'Layout test area',
+      summary: 'Temporary page for checking spacing, typography, and future visual experiments without showing unfinished work.',
+      visuals: []
     }
   },
   ja: {
@@ -662,31 +472,7 @@ export const content = {
           media: [
             { type: 'image', title: 'Giina control window', src: '/project-media/giina/main.png', alt: 'Giina control window' },
             { type: 'image', title: 'Overlay output', src: '/project-media/giina/overlay-wikipedia.png', alt: 'Giina furigana overlay' },
-            { type: 'image', title: 'Area selection', src: '/project-media/giina/area-selector.png', alt: 'Giina area selection' },
-            { type: 'image', title: 'OCR flowchart', src: '/project-media/giina/ocr-flow.svg', alt: 'Giina OCR flowchart' },
-            { type: 'image', title: 'Architecture map', src: '/project-media/giina/architecture.svg', alt: 'Giina architecture diagram' },
-            {
-              type: 'classDiagram',
-              title: 'Class diagram',
-              classes: [
-                { name: 'OverlayApp', fields: ['windows', 'hotkeys', 'state'], methods: ['capture()', 'broadcast()'] },
-                { name: 'CaptureArea', fields: ['x', 'y', 'width', 'height'], methods: ['normalize()', 'persist()'] },
-                { name: 'OcrWorker', fields: ['python', 'dictionary'], methods: ['request()', 'parseLines()'] }
-              ],
-              relations: ['OverlayApp -> CaptureArea', 'OverlayApp -> OcrWorker', 'OcrWorker -> OverlayApp']
-            },
-            {
-              type: 'flowchart',
-              title: 'OCR pipeline',
-              nodes: [
-                { id: '1', label: '画面範囲' },
-                { id: '2', label: '画像切り出し' },
-                { id: '3', label: 'OCR行' },
-                { id: '4', label: '読み抽出' },
-                { id: '5', label: 'overlay表示' }
-              ],
-              edges: ['画面範囲 -> 画像切り出し', '画像切り出し -> OCR行', 'OCR行 -> 読み抽出', '読み抽出 -> overlay表示']
-            }
+            { type: 'image', title: 'Area selection', src: '/project-media/giina/area-selector.png', alt: 'Giina area selection' }
           ]
         },
         {
@@ -729,25 +515,7 @@ export const content = {
             { type: 'image', title: 'Watch setup', src: '/project-media/laila/home.png', alt: 'Laila setup screen' },
             { type: 'image', title: 'Saved destinations', src: '/project-media/laila/saved-destinations.png', alt: 'Laila saved destinations screen' },
             { type: 'image', title: 'Destination picker', src: '/project-media/laila/pick-destination.png', alt: 'Laila destination picker' },
-            { type: 'image', title: 'Tracking view', src: '/project-media/laila/tracking.png', alt: 'Laila tracking screen' },
-            { type: 'image', title: 'Tracking flowchart', src: '/project-media/laila/tracking-flow.svg', alt: 'Laila tracking flowchart' },
-            { type: 'image', title: 'Tracking sequence', src: '/project-media/laila/tracking-sequence.svg', alt: 'Laila tracking sequence diagram' },
-            {
-              type: 'sequence',
-              title: 'Tracking sequence',
-              actors: ['User', 'Compose', 'TripService', 'Vibrator'],
-              messages: ['User -> Compose: start', 'Compose -> TripService: destination', 'TripService -> Compose: distance', 'TripService -> Vibrator: arrived']
-            },
-            {
-              type: 'erd',
-              title: 'Data sketch',
-              entities: [
-                { name: 'SavedLocation', fields: ['id', 'name', 'lat', 'lon', 'radius'] },
-                { name: 'TripState', fields: ['phase', 'distance', 'provider'] },
-                { name: 'TrackingRule', fields: ['radius', 'interval', 'arrived'] }
-              ],
-              relations: ['SavedLocation -> TripState', 'TripState -> TrackingRule']
-            }
+            { type: 'image', title: 'Tracking view', src: '/project-media/laila/tracking.png', alt: 'Laila tracking screen' }
           ]
         },
         {
@@ -758,15 +526,15 @@ export const content = {
           platforms: 'Web。Docker または Vercel にデプロイ。',
           meta: ['静的 React/Vite サイト', '二言語コンテンツ', 'Docker / Vercel 確認経路'],
           body: [
-            'NPortal はこのポートフォリオを支えるサイトです。CV、プロジェクト事例、スクリーンショット、構成図、ホームラボ情報を一つの二言語データモデルにまとめています。',
+            'NPortal はこのポートフォリオを支えるサイトです。CV、プロジェクト事例、スクリーンショット、ホームラボ情報を一つの二言語データモデルにまとめています。',
             'フロントエンドは **React 19**、静的ビルドは **Vite**、表示は通常のCSSで構成しています。`npm run build`、**Docker** プレビュー、Vercel 用ブランチへの反映まで同じ流れで確認できます。',
             'このプロジェクトでは、コンテンツ構造、再利用できる表示部品、二言語対応、ローカル確認からデプロイまでの流れを見せています。制限として、スクリーンショットは静的アセットであり、日本語文は公開前に最終確認した方がよいです。'
           ],
           description:
-            'NPortal はこのサイトです。React/Vite で作られ、CV、プロジェクト事例、図、ホームラボ情報を一つの二言語データモデルで管理しています。',
+            'NPortal はこのサイトです。React/Vite で作られ、CV、プロジェクト事例、スクリーンショット、ホームラボ情報を一つの二言語データモデルで管理しています。',
           highlights: [
             'ブラウザ言語検出と手動切替に対応した英語/日本語コンテンツ。',
-            'CV行、プロジェクト事例、メディア図、ホームラボタブを再利用コンポーネントで表示。',
+            'CV行、プロジェクト事例、スクリーンショット、ホームラボタブを再利用コンポーネントで表示。',
             'Vite の静的ビルド、ローカルプレビュー、Docker、Vercel デプロイに対応。'
           ],
           stackCards: [
@@ -778,48 +546,15 @@ export const content = {
           flow: ['content編集', 'Vite build', 'preview確認', 'commit', 'development push', 'vercel push'],
           strengths: [
             'ポートフォリオ内容が一箇所にまとまっている。',
-            '画像や図を動的な数で追加できる。',
-            '同じ図コンポーネントを事例ページとテストページで使える。'
+            'スクリーンショットを動的な数で追加できる。',
+            '同じコンテンツモデルでCV、プロジェクト、ホームラボ、テストページを管理できる。'
           ],
           limits: [
             'スクリーンショットは静的アセットなので、大きなUI変更後に更新が必要。',
             '日本語文は公開前に自然さをレビューした方がよい。',
             '静的サイトのためCMSや分析バックエンドは含まない。'
           ],
-          media: [
-            { type: 'image', title: 'Release flowchart', src: '/project-media/nportal/release-flow.svg', alt: 'NPortal release flowchart' },
-            { type: 'image', title: 'Component map', src: '/project-media/nportal/component-map.svg', alt: 'NPortal component map diagram' },
-            {
-              type: 'componentMap',
-              title: 'Component map',
-              groups: [
-                { name: 'Shell', items: ['App', 'Sidebar', 'language state'] },
-                { name: 'Views', items: ['Profile', 'Projects', 'Homelab'] },
-                { name: 'Data', items: ['content.js', 'project media', 'tabs'] }
-              ]
-            },
-            {
-              type: 'flowchart',
-              title: 'Release flow',
-              nodes: [
-                { id: 'A', label: 'prompt' },
-                { id: 'B', label: 'views' },
-                { id: 'C', label: 'build' },
-                { id: 'D', label: 'push' }
-              ],
-              edges: ['A -> B', 'B -> C', 'C -> D']
-            },
-            {
-              type: 'classDiagram',
-              title: 'View model',
-              classes: [
-                { name: 'Content', fields: ['profile', 'projects'], methods: ['selectLanguage()'] },
-                { name: 'ProjectCase', fields: ['status', 'platforms', 'media'], methods: ['renderRail()'] },
-                { name: 'DiagramCard', fields: ['type', 'title'], methods: ['renderBody()'] }
-              ],
-              relations: ['Content -> ProjectCase', 'ProjectCase -> DiagramCard']
-            }
-          ]
+          media: []
         }
       ]
     },
@@ -859,89 +594,9 @@ export const content = {
     },
     test: {
       title: 'テスト',
-      heading: 'アーキテクチャとプロジェクト図',
-      summary: 'ポートフォリオ内で使うソフトウェア構成図の一覧です。フロー、クラス図、シーケンス、ERD風モデル、コンポーネント構成、プロジェクト比較をまとめています。',
-      visuals: [
-        {
-          type: 'flowchart',
-          title: 'Portfolio release flow',
-          nodes: [
-            { id: '1', label: 'content' },
-            { id: '2', label: 'render' },
-            { id: '3', label: 'build' },
-            { id: '4', label: 'deploy' }
-          ],
-          edges: ['1 -> 2', '2 -> 3', '3 -> 4']
-        },
-        {
-          type: 'sequence',
-          title: 'Giina OCR sequence',
-          actors: ['User', 'Electron', 'Worker', 'Overlay'],
-          messages: ['User -> Electron: F9', 'Electron -> Worker: crop', 'Worker -> Electron: OCR', 'Electron -> Overlay: readings']
-        },
-        {
-          type: 'classDiagram',
-          title: 'NPortal class sketch',
-          classes: [
-            { name: 'App', fields: ['activeView', 'language'], methods: ['toggleLanguage()'] },
-            { name: 'ProjectsView', fields: ['activeProject'], methods: ['renderCaseStudy()'] },
-            { name: 'DiagramCard', fields: ['visual'], methods: ['render()'] }
-          ],
-          relations: ['App -> ProjectsView', 'ProjectsView -> DiagramCard']
-        },
-        {
-          type: 'erd',
-          title: 'Laila data model',
-          entities: [
-            { name: 'SavedLocation', fields: ['id', 'name', 'coordinate', 'radius'] },
-            { name: 'TripState', fields: ['phase', 'distance', 'provider'] },
-            { name: 'VibrationPattern', fields: ['name', 'timings'] }
-          ],
-          relations: ['SavedLocation -> TripState', 'TripState -> VibrationPattern']
-        },
-        {
-          type: 'componentMap',
-          title: 'View composition',
-          groups: [
-            { name: 'Navigation', items: ['Sidebar', 'SectionTabs'] },
-            { name: 'Pages', items: ['Profile', 'Projects', 'Homelab', 'Test'] },
-            { name: 'Visuals', items: ['Flowchart', 'Sequence', 'Class', 'ERD'] }
-          ]
-        },
-        {
-          type: 'matrix',
-          title: 'Project fit',
-          columns: ['Japan', 'UX', 'Systems'],
-          rows: [
-            { label: 'Giina', values: [3, 3, 3] },
-            { label: 'Laila', values: [1, 3, 3] },
-            { label: 'NPortal', values: [2, 2, 2] },
-            { label: 'Homelab', values: [1, 1, 3] }
-          ]
-        },
-        {
-          type: 'bars',
-          title: 'Diagram coverage',
-          rows: [
-            { label: 'Flowcharts', value: 100 },
-            { label: 'Sequences', value: 70 },
-            { label: 'Models', value: 65 },
-            { label: 'Maps', value: 80 }
-          ]
-        },
-        {
-          type: 'plantuml',
-          title: 'PlantUML smoke test',
-          lines: [
-            '@startuml',
-            'actor Visitor',
-            'Visitor -> NPortal: open project page',
-            'NPortal -> MediaRail: render screenshots + SVG diagrams',
-            'MediaRail --> Visitor: zoomable evidence',
-            '@enduml'
-          ]
-        }
-      ]
+      heading: '表示テスト',
+      summary: '未完成のチャートを表示せず、余白や文字組み、今後の表示実験を確認するための一時ページです。',
+      visuals: []
     }
   }
 };

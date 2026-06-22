@@ -1,6 +1,5 @@
 FROM node:22-alpine AS build
 WORKDIR /app
-ENV PUPPETEER_SKIP_DOWNLOAD=true
 COPY package*.json ./
 RUN npm ci
 COPY . .

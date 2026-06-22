@@ -1,5 +1,4 @@
 import React from 'react';
-import DiagramCard from '../components/DiagramCard.jsx';
 import { content } from '../data/content.js';
 
 export default function TestView({ language }) {
@@ -16,12 +15,6 @@ export default function TestView({ language }) {
           <h2>{test.heading}</h2>
           <p>{test.summary}</p>
         </header>
-
-        <div className="visual-grid">
-          {test.visuals.map((visual) => (
-            <DiagramCard key={visual.title} visual={visual} />
-          ))}
-        </div>
       </article>
     </section>
   );
