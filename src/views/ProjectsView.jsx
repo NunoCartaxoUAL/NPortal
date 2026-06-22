@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { DiagramBody } from '../components/DiagramCard.jsx';
 import SectionTabs from '../components/SectionTabs.jsx';
 import { content } from '../data/content.js';
 
@@ -11,12 +10,11 @@ function FormattedText({ text }) {
 
 function ProjectCaseStudy({ language, project, onImageOpen }) {
   const body = project.body ?? project.highlights ?? [project.description].filter(Boolean);
-  const media = project.media ?? [];
+  const media = (project.media ?? []).filter((item) => item.type === 'image');
   const labels = {
     status: language === 'ja' ? '状態' : 'Status',
     platforms: language === 'ja' ? '対象' : 'Platforms',
     stack: language === 'ja' ? 'スタック' : 'Stack',
-    flow: language === 'ja' ? '流れ' : 'Flow',
     strengths: language === 'ja' ? '現在の強み' : 'Current strengths',
     limits: language === 'ja' ? '現在の制限' : 'Current limits'
   };
@@ -62,20 +60,6 @@ function ProjectCaseStudy({ language, project, onImageOpen }) {
             </ol>
           </section>
 
-          {project.flow?.length ? (
-            <section className="project-flow-section" aria-label={`${project.title} flow`}>
-              <h3>{labels.flow}</h3>
-              <div className="project-flow">
-                {project.flow.map((step, index) => (
-                  <React.Fragment key={step}>
-                    <span>{step}</span>
-                    {index < project.flow.length - 1 ? <i aria-hidden="true" /> : null}
-                  </React.Fragment>
-                ))}
-              </div>
-            </section>
-          ) : null}
-
           <div className="project-status-grid">
             <section>
               <h3>{labels.strengths}</h3>
@@ -119,16 +103,12 @@ function ProjectMedia({ item, onImageOpen }) {
         <button className="project-image-button" type="button" onClick={() => onImageOpen(item)}>
           <img src={item.src} alt={item.alt} />
         </button>
+        <figcaption>{item.title}</figcaption>
       </figure>
     );
   }
 
-  return (
-    <section className="project-media-card project-diagram-card" aria-label={item.title}>
-      <h3>{item.title}</h3>
-      <DiagramBody visual={item} />
-    </section>
-  );
+  return null;
 }
 
 function ImageLightbox({ image, onClose }) {
@@ -160,6 +140,7 @@ function ImageLightbox({ image, onClose }) {
       </button>
       <figure onClick={(event) => event.stopPropagation()}>
         <img src={image.src} alt={image.alt} />
+        <figcaption>{image.title}</figcaption>
       </figure>
     </div>
   );

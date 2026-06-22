@@ -264,6 +264,7 @@ p {
 
 .paper > * {
   position: relative;
+  top: -1px;
 }
 
 .paper h2 {
@@ -615,12 +616,10 @@ p {
   gap: 0;
   min-height: calc(var(--paper-line) * 3);
   padding: 0;
-  border-bottom: 1px solid var(--grey-200);
 }
 
 .project-facts span,
 .project-stack h3,
-.project-flow-section h3,
 .project-status-grid h3 {
   color: var(--grey-500);
   font-size: 0.72rem;
@@ -661,14 +660,8 @@ p {
 }
 
 .project-stack h3,
-.project-flow-section h3,
 .project-status-grid h3 {
   margin-bottom: 0;
-}
-
-.project-flow-section {
-  display: grid;
-  gap: 8px;
 }
 
 .project-stack ol {
@@ -736,37 +729,26 @@ p {
   display: grid;
   gap: 0;
   margin: 0;
-  padding-left: 18px;
+  padding-left: 0;
+  list-style: none;
 }
 
 .project-status-grid li {
+  position: relative;
+  min-height: var(--paper-line);
+  padding-left: 14px;
   color: var(--grey-700);
   font-size: 0.84rem;
   line-height: var(--paper-line);
 }
 
-.project-flow {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
-}
-
-.project-flow span {
-  min-height: 28px;
-  padding: 0 9px;
-  color: var(--grey-700);
-  font-size: 0.78rem;
-  font-weight: 750;
-  line-height: 1.2;
-  border: 1px solid var(--grey-200);
-  background: transparent;
-}
-
-.project-flow i {
-  width: 24px;
-  height: 1px;
-  background: var(--grey-500);
+.project-status-grid li::before {
+  position: absolute;
+  left: 0;
+  color: var(--grey-500);
+  content: "-";
+  font-weight: 800;
+  line-height: var(--paper-line);
 }
 
 .project-limits {
@@ -827,6 +809,7 @@ p {
 
 .image-lightbox figure {
   display: grid;
+  gap: 10px;
   max-width: min(1180px, 100%);
   max-height: 100%;
   margin: 0;
@@ -840,6 +823,14 @@ p {
   object-fit: contain;
   background: var(--surface);
   border: 1px solid var(--grey-050);
+}
+
+.image-lightbox figcaption {
+  color: var(--grey-050);
+  font-size: 0.82rem;
+  font-weight: 750;
+  line-height: 1.25;
+  text-align: center;
 }
 
 .lightbox-close {
@@ -864,33 +855,6 @@ p {
   background: var(--grey-950);
   color: var(--grey-050);
   outline: none;
-}
-
-.project-diagram-card .class-grid,
-.project-diagram-card .entity-grid,
-.project-diagram-card .flowchart-grid,
-.project-diagram-card .sequence-actors,
-.project-diagram-card .component-map {
-  grid-template-columns: 1fr;
-}
-
-.project-diagram-card .class-box,
-.project-diagram-card .entity-box {
-  min-height: auto;
-}
-
-.project-diagram-card {
-  overflow: hidden;
-}
-
-.project-diagram-card h3 {
-  color: var(--grey-950);
-  text-transform: uppercase;
-}
-
-.project-diagram-card .relation-list span,
-.project-diagram-card .sequence-lines span {
-  word-break: break-word;
 }
 
 .evidence-intro {
