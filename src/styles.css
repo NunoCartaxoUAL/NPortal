@@ -784,6 +784,11 @@ p {
   border: 1px solid var(--grey-200);
 }
 
+.project-media-card img[src$=".svg"] {
+  object-fit: contain;
+  background: var(--surface);
+}
+
 .project-image-button {
   display: block;
   width: 100%;
@@ -864,14 +869,14 @@ p {
   outline: none;
 }
 
-.evidence-intro {
+.test-intro {
   display: grid;
   max-width: 76ch;
   margin-bottom: var(--paper-line);
 }
 
-.evidence-intro h2,
-.evidence-intro p {
+.test-intro h2,
+.test-intro p {
   margin-bottom: 0;
 }
 

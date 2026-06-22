@@ -6,7 +6,7 @@ const views = [
   { id: 'profile', label: 'Profile', icon: BriefcaseBusiness },
   { id: 'projects', label: 'Projects', icon: FolderKanban },
   { id: 'homelab', label: 'Homelab', icon: Server },
-  { id: 'evidence', label: 'Evidence', icon: ChartNoAxesCombined }
+  { id: 'test', label: 'Test', icon: ChartNoAxesCombined }
 ];
 
 export default function Sidebar({ activeView, language, onLanguageToggle, onViewChange }) {

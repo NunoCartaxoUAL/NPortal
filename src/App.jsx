@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import Sidebar from './components/Sidebar.jsx';
-import EvidenceView from './views/EvidenceView.jsx';
 import HomelabView from './views/HomelabView.jsx';
 import ProfileView from './views/ProfileView.jsx';
 import ProjectsView from './views/ProjectsView.jsx';
+import TestView from './views/TestView.jsx';
 
-const views = ['profile', 'projects', 'homelab', 'evidence'];
+const views = ['profile', 'projects', 'homelab', 'test'];
 
 function getInitialView() {
   const hashView = window.location.hash.replace('#', '');
@@ -48,7 +48,7 @@ export default function App() {
     profile: <ProfileView language={language} />,
     projects: <ProjectsView language={language} />,
     homelab: <HomelabView language={language} />,
-    evidence: <EvidenceView language={language} />
+    test: <TestView language={language} />
   }[activeView];
 
   function changeView(nextView) {

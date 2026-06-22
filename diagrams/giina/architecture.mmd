@@ -1,0 +1,9 @@
+flowchart TB
+  User[User hotkeys] --> Electron[Electron shell]
+  Electron --> Capture[Capture area state]
+  Electron --> Overlay[Transparent overlay]
+  Electron --> Worker[Python OCR worker]
+  Worker --> OCR[PaddleOCR]
+  Worker --> Reading[fugashi / pykakasi]
+  OCR --> Overlay
+  Reading --> Overlay

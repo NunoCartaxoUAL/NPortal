@@ -2,23 +2,23 @@ import React from 'react';
 import DiagramCard from '../components/DiagramCard.jsx';
 import { content } from '../data/content.js';
 
-export default function EvidenceView({ language }) {
-  const evidence = content[language].evidence;
+export default function TestView({ language }) {
+  const test = content[language].test;
 
   return (
-    <section className="page-section" aria-labelledby="evidence-title">
+    <section className="page-section" aria-labelledby="test-title">
       <header className="top-panel">
-        <h1 id="evidence-title">{evidence.title}</h1>
+        <h1 id="test-title">{test.title}</h1>
       </header>
 
       <article className="paper visual-paper">
-        <header className="evidence-intro">
-          <h2>{evidence.heading}</h2>
-          <p>{evidence.summary}</p>
+        <header className="test-intro">
+          <h2>{test.heading}</h2>
+          <p>{test.summary}</p>
         </header>
 
         <div className="visual-grid">
-          {evidence.visuals.map((visual) => (
+          {test.visuals.map((visual) => (
             <DiagramCard key={visual.title} visual={visual} />
           ))}
         </div>

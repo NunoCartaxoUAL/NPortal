@@ -1,0 +1,12 @@
+sequenceDiagram
+  actor User
+  participant UI as Compose UI
+  participant Service as TripService
+  participant Location
+  participant Watch as Vibrator
+  User->>UI: start trip
+  UI->>Service: destination + radius
+  Service->>Location: request updates
+  Location-->>Service: current position
+  Service-->>UI: distance state
+  Service->>Watch: vibrate on arrival

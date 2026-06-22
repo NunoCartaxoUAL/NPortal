@@ -4,7 +4,7 @@ export const content = {
       profile: 'Profile',
       projects: 'Projects',
       homelab: 'Homelab',
-      evidence: 'Evidence'
+      test: 'Test'
     },
     profile: {
       title: 'Profile',
@@ -174,6 +174,18 @@ export const content = {
               alt: 'Giina selecting a screen area for OCR'
             },
             {
+              type: 'image',
+              title: 'OCR flowchart',
+              src: '/project-media/giina/ocr-flow.svg',
+              alt: 'Giina OCR flowchart'
+            },
+            {
+              type: 'image',
+              title: 'Architecture map',
+              src: '/project-media/giina/architecture.svg',
+              alt: 'Giina architecture diagram'
+            },
+            {
               type: 'classDiagram',
               title: 'Class diagram',
               classes: [
@@ -259,6 +271,18 @@ export const content = {
               alt: 'Laila tracking GPS screen'
             },
             {
+              type: 'image',
+              title: 'Tracking flowchart',
+              src: '/project-media/laila/tracking-flow.svg',
+              alt: 'Laila tracking flowchart'
+            },
+            {
+              type: 'image',
+              title: 'Tracking sequence',
+              src: '/project-media/laila/tracking-sequence.svg',
+              alt: 'Laila tracking sequence diagram'
+            },
+            {
               type: 'sequence',
               title: 'Tracking sequence',
               actors: ['User', 'Compose', 'TripService', 'Vibrator'],
@@ -318,6 +342,18 @@ export const content = {
             'The site is intentionally static; no backend analytics or CMS are included.'
           ],
           media: [
+            {
+              type: 'image',
+              title: 'Release flowchart',
+              src: '/project-media/nportal/release-flow.svg',
+              alt: 'NPortal release flowchart'
+            },
+            {
+              type: 'image',
+              title: 'Component map',
+              src: '/project-media/nportal/component-map.svg',
+              alt: 'NPortal component map diagram'
+            },
             {
               type: 'componentMap',
               title: 'Component map',
@@ -386,8 +422,8 @@ export const content = {
         }
       ]
     },
-    evidence: {
-      title: 'Evidence',
+    test: {
+      title: 'Test',
       heading: 'Architecture and project diagrams',
       summary: 'A compact board of software-engineering visuals used across the portal: flows, class sketches, sequence diagrams, ERD-style models, component maps, and project-fit comparisons.',
       visuals: [
@@ -433,7 +469,7 @@ export const content = {
           title: 'View composition',
           groups: [
             { name: 'Navigation', items: ['Sidebar', 'SectionTabs'] },
-            { name: 'Pages', items: ['Profile', 'Projects', 'Homelab', 'Evidence'] },
+            { name: 'Pages', items: ['Profile', 'Projects', 'Homelab', 'Test'] },
             { name: 'Visuals', items: ['Flowchart', 'Sequence', 'Class', 'ERD'] }
           ]
         },
@@ -447,6 +483,28 @@ export const content = {
             { label: 'NPortal', values: [2, 2, 2] },
             { label: 'Homelab', values: [1, 1, 3] }
           ]
+        },
+        {
+          type: 'bars',
+          title: 'Diagram coverage',
+          rows: [
+            { label: 'Flowcharts', value: 100 },
+            { label: 'Sequences', value: 70 },
+            { label: 'Models', value: 65 },
+            { label: 'Maps', value: 80 }
+          ]
+        },
+        {
+          type: 'plantuml',
+          title: 'PlantUML smoke test',
+          lines: [
+            '@startuml',
+            'actor Visitor',
+            'Visitor -> NPortal: open project page',
+            'NPortal -> MediaRail: render screenshots + SVG diagrams',
+            'MediaRail --> Visitor: zoomable evidence',
+            '@enduml'
+          ]
         }
       ]
     }
@@ -456,7 +514,7 @@ export const content = {
       profile: 'プロフィール',
       projects: 'プロジェクト',
       homelab: 'ホームラボ',
-      evidence: '構成図'
+      test: 'テスト'
     },
     profile: {
       title: 'プロフィール',
@@ -605,6 +663,8 @@ export const content = {
             { type: 'image', title: 'Giina control window', src: '/project-media/giina/main.png', alt: 'Giina control window' },
             { type: 'image', title: 'Overlay output', src: '/project-media/giina/overlay-wikipedia.png', alt: 'Giina furigana overlay' },
             { type: 'image', title: 'Area selection', src: '/project-media/giina/area-selector.png', alt: 'Giina area selection' },
+            { type: 'image', title: 'OCR flowchart', src: '/project-media/giina/ocr-flow.svg', alt: 'Giina OCR flowchart' },
+            { type: 'image', title: 'Architecture map', src: '/project-media/giina/architecture.svg', alt: 'Giina architecture diagram' },
             {
               type: 'classDiagram',
               title: 'Class diagram',
@@ -670,6 +730,8 @@ export const content = {
             { type: 'image', title: 'Saved destinations', src: '/project-media/laila/saved-destinations.png', alt: 'Laila saved destinations screen' },
             { type: 'image', title: 'Destination picker', src: '/project-media/laila/pick-destination.png', alt: 'Laila destination picker' },
             { type: 'image', title: 'Tracking view', src: '/project-media/laila/tracking.png', alt: 'Laila tracking screen' },
+            { type: 'image', title: 'Tracking flowchart', src: '/project-media/laila/tracking-flow.svg', alt: 'Laila tracking flowchart' },
+            { type: 'image', title: 'Tracking sequence', src: '/project-media/laila/tracking-sequence.svg', alt: 'Laila tracking sequence diagram' },
             {
               type: 'sequence',
               title: 'Tracking sequence',
@@ -725,6 +787,8 @@ export const content = {
             '静的サイトのためCMSや分析バックエンドは含まない。'
           ],
           media: [
+            { type: 'image', title: 'Release flowchart', src: '/project-media/nportal/release-flow.svg', alt: 'NPortal release flowchart' },
+            { type: 'image', title: 'Component map', src: '/project-media/nportal/component-map.svg', alt: 'NPortal component map diagram' },
             {
               type: 'componentMap',
               title: 'Component map',
@@ -793,8 +857,8 @@ export const content = {
         }
       ]
     },
-    evidence: {
-      title: '構成図',
+    test: {
+      title: 'テスト',
       heading: 'アーキテクチャとプロジェクト図',
       summary: 'ポートフォリオ内で使うソフトウェア構成図の一覧です。フロー、クラス図、シーケンス、ERD風モデル、コンポーネント構成、プロジェクト比較をまとめています。',
       visuals: [
@@ -840,7 +904,7 @@ export const content = {
           title: 'View composition',
           groups: [
             { name: 'Navigation', items: ['Sidebar', 'SectionTabs'] },
-            { name: 'Pages', items: ['Profile', 'Projects', 'Homelab', 'Evidence'] },
+            { name: 'Pages', items: ['Profile', 'Projects', 'Homelab', 'Test'] },
             { name: 'Visuals', items: ['Flowchart', 'Sequence', 'Class', 'ERD'] }
           ]
         },
@@ -853,6 +917,28 @@ export const content = {
             { label: 'Laila', values: [1, 3, 3] },
             { label: 'NPortal', values: [2, 2, 2] },
             { label: 'Homelab', values: [1, 1, 3] }
+          ]
+        },
+        {
+          type: 'bars',
+          title: 'Diagram coverage',
+          rows: [
+            { label: 'Flowcharts', value: 100 },
+            { label: 'Sequences', value: 70 },
+            { label: 'Models', value: 65 },
+            { label: 'Maps', value: 80 }
+          ]
+        },
+        {
+          type: 'plantuml',
+          title: 'PlantUML smoke test',
+          lines: [
+            '@startuml',
+            'actor Visitor',
+            'Visitor -> NPortal: open project page',
+            'NPortal -> MediaRail: render screenshots + SVG diagrams',
+            'MediaRail --> Visitor: zoomable evidence',
+            '@enduml'
           ]
         }
       ]

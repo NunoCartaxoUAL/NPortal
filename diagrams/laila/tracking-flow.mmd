@@ -1,0 +1,7 @@
+flowchart LR
+  A[Pick destination] --> B[Set arrival radius]
+  B --> C[Start TripService]
+  C --> D[Check distance]
+  D --> E{Inside radius?}
+  E -- No --> D
+  E -- Yes --> F[Vibrate watch]

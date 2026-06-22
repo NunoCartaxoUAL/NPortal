@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
+    "diagrams:build": "mmdc -c diagrams/mermaid-config.json -p diagrams/puppeteer-config.json -i diagrams/giina/ocr-flow.mmd -o public/project-media/giina/ocr-flow.svg -b transparent && mmdc -c diagrams/mermaid-config.json -p diagrams/puppeteer-config.json -i diagrams/giina/architecture.mmd -o public/project-media/giina/architecture.svg -b transparent && mmdc -c diagrams/mermaid-config.json -p diagrams/puppeteer-config.json -i diagrams/laila/tracking-flow.mmd -o public/project-media/laila/tracking-flow.svg -b transparent && mmdc -c diagrams/mermaid-config.json -p diagrams/puppeteer-config.json -i diagrams/laila/tracking-sequence.mmd -o public/project-media/laila/tracking-sequence.svg -b transparent && mmdc -c diagrams/mermaid-config.json -p diagrams/puppeteer-config.json -i diagrams/nportal/release-flow.mmd -o public/project-media/nportal/release-flow.svg -b transparent && mmdc -c diagrams/mermaid-config.json -p diagrams/puppeteer-config.json -i diagrams/nportal/component-map.mmd -o public/project-media/nportal/component-map.svg -b transparent",
     "preview": "vite preview --host 0.0.0.0"
   },
   "dependencies": {
@@ -14,6 +15,7 @@
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
+    "@mermaid-js/mermaid-cli": "^11.15.0",
     "@vitejs/plugin-react": "^4.4.0",
     "vite": "^6.3.5"
   }
