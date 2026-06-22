@@ -1,9 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import Sidebar from './components/Sidebar.jsx';
+import EvidenceView from './views/EvidenceView.jsx';
 import HomelabView from './views/HomelabView.jsx';
 import ProfileView from './views/ProfileView.jsx';
 import ProjectsView from './views/ProjectsView.jsx';
-import TestView from './views/TestView.jsx';
+
+const views = ['profile', 'projects', 'homelab', 'evidence'];
+
+function getInitialView() {
+  const hashView = window.location.hash.replace('#', '');
+
+  return views.includes(hashView) ? hashView : 'profile';
+}
 
 function getInitialLanguage() {
   const storedLanguage = window.localStorage.getItem('nportal-language');
@@ -16,19 +24,37 @@ function getInitialLanguage() {
 }
 
 export default function App() {
-  const [activeView, setActiveView] = useState('profile');
+  const [activeView, setActiveView] = useState(getInitialView);
   const [language, setLanguage] = useState(getInitialLanguage);
 
   useEffect(() => {
     document.documentElement.lang = language;
   }, [language]);
 
+  useEffect(() => {
+    function handleHashChange() {
+      const hashView = window.location.hash.replace('#', '');
+
+      if (views.includes(hashView)) {
+        setActiveView(hashView);
+      }
+    }
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
   const activePage = {
     profile: <ProfileView language={language} />,
     projects: <ProjectsView language={language} />,
     homelab: <HomelabView language={language} />,
-    test: <TestView language={language} />
+    evidence: <EvidenceView language={language} />
   }[activeView];
+
+  function changeView(nextView) {
+    setActiveView(nextView);
+    window.history.replaceState(null, '', `#${nextView}`);
+  }
 
   function toggleLanguage() {
     setLanguage((currentLanguage) => {
@@ -44,7 +70,7 @@ export default function App() {
         activeView={activeView}
         language={language}
         onLanguageToggle={toggleLanguage}
-        onViewChange={setActiveView}
+        onViewChange={changeView}
       />
       <main className="main-content">{activePage}</main>
     </div>

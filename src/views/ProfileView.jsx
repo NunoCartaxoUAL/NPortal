@@ -2,21 +2,28 @@ import React, { useEffect, useMemo, useState } from 'react';
 import SectionTabs from '../components/SectionTabs.jsx';
 import { content } from '../data/content.js';
 
-function TagList({ tags }) {
+function FormattedText({ text }) {
+  return text.split('**').map((part, index) => (
+    index % 2 === 1 ? <strong key={`${part}-${index}`}>{part}</strong> : part
+  ));
+}
+
+function TagList({ label, tags }) {
   if (!tags?.length) {
     return null;
   }
 
   return (
-    <div className="tag-list">
+    <p className="tag-list">
+      <strong>{label}</strong>
       {tags.map((tag) => (
         <span key={tag}>{tag}</span>
       ))}
-    </div>
+    </p>
   );
 }
 
-function CvEntry({ entry }) {
+function CvEntry({ entry, tagLabel }) {
   return (
     <section className="cv-entry">
       <div className="cv-entry-head">
@@ -26,15 +33,19 @@ function CvEntry({ entry }) {
         </div>
         <time>{entry.date}</time>
       </div>
-      <p>{entry.summary}</p>
+      <p>
+        <FormattedText text={entry.summary} />
+      </p>
       {entry.highlights?.length ? (
         <ul>
           {entry.highlights.map((point) => (
-            <li key={point}>{point}</li>
+            <li key={point}>
+              <FormattedText text={point} />
+            </li>
           ))}
         </ul>
       ) : null}
-      <TagList tags={entry.tags} />
+      <TagList label={tagLabel} tags={entry.tags} />
     </section>
   );
 }
@@ -48,13 +59,17 @@ function LanguageLevels({ levels }) {
     <section className="language-panel" aria-label="Language levels">
       {levels.map((level) => (
         <div className="language-row" key={level.label}>
-          <div>
-            <strong>{level.label}</strong>
-            <span>{level.detail}</span>
-          </div>
-          <div className="language-meter" aria-hidden="true">
-            <span style={{ width: `${level.value}%` }} />
-          </div>
+          <strong>{level.label}</strong>
+          <span className="language-dots" aria-label={`${level.label}: ${level.detail}`}>
+            {Array.from({ length: 5 }).map((_, index) => (
+              <i
+                className={index < Math.ceil(level.value / 20) ? 'filled' : ''}
+                key={`${level.label}-${index}`}
+                aria-hidden="true"
+              />
+            ))}
+          </span>
+          <span>{level.detail}</span>
         </div>
       ))}
     </section>
@@ -69,11 +84,11 @@ function CertificationList({ certifications }) {
   return (
     <section className="cert-panel" aria-label="Certifications">
       {certifications.map((certification) => (
-        <span key={certification.title}>
+        <p key={certification.title}>
           <time>{certification.date}</time>
           <strong>{certification.title}</strong>
           <em>{certification.issuer}</em>
-        </span>
+        </p>
       ))}
     </section>
   );
@@ -89,8 +104,26 @@ function ProfileCards({ cards }) {
       {cards.map((card) => (
         <section className="profile-card" key={card.title}>
           <h3>{card.title}</h3>
-          <p>{card.text}</p>
+          <p>
+            <FormattedText text={card.text} />
+          </p>
         </section>
+      ))}
+    </div>
+  );
+}
+
+function ProfileParagraphs({ paragraphs }) {
+  if (!paragraphs?.length) {
+    return null;
+  }
+
+  return (
+    <div className="profile-paragraphs">
+      {paragraphs.map((paragraph) => (
+        <p key={paragraph}>
+          {paragraph}
+        </p>
       ))}
     </div>
   );
@@ -102,6 +135,7 @@ export default function ProfileView({ language }) {
   const [activeTab, setActiveTab] = useState(tabs[0]);
   const activeSection =
     profile.sections.find((section) => section.title === activeTab) ?? profile.sections[0];
+  const tagLabel = language === 'ja' ? '技術:' : 'Technologies:';
 
   useEffect(() => {
     if (!tabs.includes(activeTab)) {
@@ -128,14 +162,14 @@ export default function ProfileView({ language }) {
         aria-labelledby={`tab-${activeSection.title}`}
       >
         <h2>{activeSection.title}</h2>
-        {activeSection.intro ? <p>{activeSection.intro}</p> : null}
+        <ProfileParagraphs paragraphs={activeSection.paragraphs} />
         <LanguageLevels levels={activeSection.levels} />
         <CertificationList certifications={activeSection.certifications} />
         <ProfileCards cards={activeSection.cards} />
         {activeSection.entries?.length ? (
             <div className="cv-list">
               {activeSection.entries.map((entry) => (
-                <CvEntry entry={entry} key={entry.title} />
+                <CvEntry entry={entry} key={entry.title} tagLabel={tagLabel} />
               ))}
             </div>
         ) : null}
