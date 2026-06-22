@@ -119,7 +119,6 @@ function ProjectMedia({ item, onImageOpen }) {
         <button className="project-image-button" type="button" onClick={() => onImageOpen(item)}>
           <img src={item.src} alt={item.alt} />
         </button>
-        <figcaption>{item.title}</figcaption>
       </figure>
     );
   }
@@ -161,7 +160,6 @@ function ImageLightbox({ image, onClose }) {
       </button>
       <figure onClick={(event) => event.stopPropagation()}>
         <img src={image.src} alt={image.alt} />
-        <figcaption>{image.title}</figcaption>
       </figure>
     </div>
   );

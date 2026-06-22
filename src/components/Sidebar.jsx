@@ -29,7 +29,6 @@ export default function Sidebar({ activeView, language, onLanguageToggle, onView
             title={labels[id] ?? label}
           >
             <Icon size={22} strokeWidth={1.8} aria-hidden="true" />
-            <span>{labels[id] ?? label}</span>
           </button>
         ))}
       </nav>
