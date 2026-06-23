@@ -334,15 +334,15 @@ export const content = {
           title: '職務経験',
           entries: [
             {
-              title: 'ソフトウェア開発者',
+              title: 'ソフトウェアエンジニア',
               organization: 'Capgemini',
               location: 'リスボン、ポルトガル',
               date: '2024/10 - 現在',
-              summary: 'Capgemini の開発チームで、エンタープライズ系プロジェクトとデプロイ関連の開発を担当。',
+              summary: 'Capgemini のエンジニアリングチームで、エンタープライズ向け案件とデプロイ関連の開発に携わっています。',
               highlights: [
-                '2024年10月に**インターン**として入社し、2025年1月から**正社員**として継続。',
-                '**Java/Spring**、**React Admin**、**Kubernetes/Helm**、**Jenkins**、**Git**、**SIP** 関連システムを使用。',
-                'バックエンド、フロントエンド、調査、修正、チーム内の引き継ぎを担当。'
+                '2024年10月に**インターン**として入社し、2025年1月から**正社員のソフトウェア開発者**として勤務。',
+                '**Java/Spring** サービス、**React Admin** 画面、**Kubernetes/Helm**、**Jenkins** パイプライン、**Git** ワークフロー、**SIP** 関連システムに対応。',
+                '実装、調査、修正、チーム内引き継ぎまで、バックエンドとフロントエンドの両方を担当。'
               ],
               tags: ['Java', 'Spring', 'Kubernetes', 'Helm', 'React Admin', 'Jenkins']
             },
@@ -351,22 +351,22 @@ export const content = {
               organization: 'Inetum',
               location: 'リスボン、ポルトガル',
               date: '2024/01 - 2024/07',
-              summary: '**COBOL** と **SQL** を使ったソフトウェア開発を担当。',
+              summary: '**COBOL** と **SQL** を用いた業務システム開発を担当。',
               highlights: [
-                '**COBOL** と **SQL** のソフトウェアを開発。',
-                '**COBOL** と **SQL** のトラブルシューティングとテストを実施。'
+                '**COBOL** と **SQL** による開発作業を実施。',
+                '変更内容の調査、トラブルシューティング、テストを担当。'
               ],
               tags: ['COBOL', 'SQL']
             },
             {
-              title: '専任テクニカルサポート',
+              title: '専任テクニカルサポート担当',
               organization: 'NOS SGPS',
               location: 'リスボン、ポルトガル',
               date: '2019/11 - 2020/01',
-              summary: 'BPI向けサポートと**ネットワークトラブルシューティング**を担当。',
+              summary: 'BPI向けの専任サポートとして、問い合わせ対応と**ネットワークトラブルシューティング**を担当。',
               highlights: [
-                'BPI向けサポートと**ネットワークトラブルシューティング**。',
-                '**Cisco** 技術を使用。'
+                'BPI関連の依頼対応と**ネットワークトラブルシューティング**を実施。',
+                '**Cisco** 機器とネットワーク技術を使用。'
               ],
               tags: ['サポート', 'ネットワーク', 'Cisco']
             }
@@ -377,14 +377,14 @@ export const content = {
           title: '学歴',
           entries: [
             {
-              title: 'コンピュータ工学 学士',
+              title: 'コンピュータ工学学士',
               organization: 'Universidade Autonoma de Lisboa',
               location: 'リスボン、ポルトガル',
               date: '2020/10 - 2023/07',
-              summary: '**Computer Science and Engineering** の学士課程。',
+              summary: '**コンピュータサイエンスとソフトウェア工学**を中心に学んだ学士課程。',
               highlights: [
                 '**Python**、**Java**、**JavaScript**、**Vue.js**、**MySQL**、**MongoDB**、**Firebase**、**GitHub**、**Heroku**、**AWS**を使用。',
-                '**Express.js + MySQL**のWebストア、**Vue.js** Webストア、ソケット通信チャットを作成。'
+                '**Express.js + MySQL** のWebストア、**Vue.js** Webストア、ソケット通信チャットを作成。'
               ],
               tags: ['コンピュータ工学', 'Python', 'Java', 'JavaScript', 'Vue.js', 'DB']
             },
@@ -393,11 +393,11 @@ export const content = {
               organization: 'ATEC - Academia de Formacao',
               location: 'パルメラ、ポルトガル',
               date: '2018/09 - 2020/02',
-              summary: '**ネットワーク・コンピュータシステム管理**の専門課程。',
+              summary: '**ネットワークとコンピュータシステム管理**を学ぶ専門課程。',
               highlights: [
                 '**SQL**、**Java**、**C#** のプログラミング。',
                 '**Linux**、**Windows**、その他OSの管理。',
-                '**Cisco**ネットワーク機器と**Cisco**プロトコルを専門的に学習。'
+                '**Cisco** ネットワーク機器とネットワークプロトコルを専門的に学習。'
               ],
               tags: ['ネットワーク', 'Linux', 'Windows', 'Cisco', 'SQL', 'Java', 'C#']
             }
@@ -409,12 +409,12 @@ export const content = {
           levels: [
             { label: 'ポルトガル語', value: 100, detail: '母語' },
             { label: '英語', value: 92, detail: 'C1-C2 実務レベル' },
-            { label: '日本語', value: 58, detail: 'JLPT N3 / 会話 B1' },
+            { label: '日本語', value: 58, detail: 'JLPT N3 / 日常会話レベル' },
             { label: 'スペイン語', value: 32, detail: 'A1-A2' },
             { label: 'フランス語', value: 18, detail: 'A1' }
           ],
           certifications: [
-            { date: '2023/07', title: '日本語能力試験 JLPT N3', issuer: 'JLPT' },
+            { date: '2023/07', title: '日本語能力試験（JLPT）N3', issuer: 'JLPT' },
             { date: '2024/10', title: 'Oracle Certified Java Programmer, Java SE 8 Associate', issuer: 'Oracle' },
             { date: '2024/12', title: 'Professional Scrum Master I', issuer: 'Scrum.org' }
           ]
@@ -423,9 +423,9 @@ export const content = {
           id: 'direction',
           title: '自己紹介',
           paragraphs: [
-            'Java/Spring、React Admin、Kubernetes、Helm、Jenkins、Git、データベース、Linux/ネットワーク調査の実務経験を持つソフトウェア開発者です。',
-            '日本語学習、ローカルファーストなツール、小さな画面向けUI、セルフホスト環境を組み合わせたプロジェクトを中心に作っています。',
-            '日本で働くことを目標にしています。ポルトガル語は母語、英語は主な実務言語、日本語は JLPT N3 / 会話レベルです。'
+            'Java/Spring、React Admin、Kubernetes、Helm、Jenkins、Git、データベース、Linux/ネットワークの調査・運用に実務経験を持つソフトウェア開発者です。',
+            '日本語学習、ローカルファーストなツール、小型画面向けUI、セルフホスト環境を組み合わせたプロジェクトを中心に開発しています。',
+            '日本で働くことを目標に、ポルトガル語を母語、英語を主な実務言語、日本語を JLPT N3 / 日常会話レベルとして使っています。'
           ]
         }
       ]
@@ -436,38 +436,38 @@ export const content = {
         {
           id: 'giina',
           title: 'Giina',
-          objective: 'ゲームや動画の日本語を読むためのローカルOCR・ふりがなオーバーレイ。',
-          status: 'プロトタイプ v0.3.0。デスクトップアプリ、Steam Deck 版あり。',
+          objective: 'ゲームや動画内の日本語を読むためのローカルOCR・ふりがなオーバーレイ。',
+          status: 'プロトタイプ v0.3.0。デスクトップアプリで、Steam Deck 向けブランチあり。',
           platforms: 'デスクトップアプリ、Steam Deck 版。',
           meta: ['プロトタイプ v0.3.0', 'デスクトップ優先', 'SteamOSブランチ作業中'],
           body: [
-            'Giina は、日本語学習向けのローカルファーストなワークフローを形にしたプロジェクトです。選択した画面範囲をキャプチャし、ローカルOCRで読みを抽出し、日本語テキストの上にふりがなを表示します。',
-            'デスクトップ側は **Electron** がウィンドウ、透明オーバーレイ、ホットキー、キャプチャ、ログ、IPCを担当します。画面は **React** と **Vite** で表示し、ローカルの **Python** worker が **PaddleOCR**、**fugashi**、**pykakasi**、辞書データで読みを抽出します。',
-            '現在のプロトタイプは、ウィンドウ表示またはボーダーレス表示のデスクトップ用途に向いています。排他フルスクリーンは対象外です。SteamOSブランチでは F8 範囲選択、F9 OCR更新、F10終了、小さなステータス表示に整理しています。'
+            'Giina は、日本語学習向けのローカルファーストな読解支援ワークフローを形にしたプロジェクトです。選択した画面範囲をキャプチャし、端末内のOCRで読みを抽出して、日本語テキスト上にふりがなを重ねて表示します。',
+            'デスクトップ側では **Electron** がウィンドウ管理、透明オーバーレイ、ホットキー、キャプチャ、ログ、IPCを担います。UI は **React/Vite** で構成し、ローカルの **Python** ワーカーが **PaddleOCR**、**fugashi**、**pykakasi**、辞書データを使って読みを抽出します。',
+            '現在のプロトタイプは、ウィンドウ表示またはボーダーレス表示のデスクトップ用途に向いています。排他フルスクリーンは対象外です。SteamOSブランチでは、F8 範囲選択、F9 OCR更新、F10 終了、小さなステータス表示に操作を絞っています。'
           ],
           description:
-            'Giina は選択した画面範囲をキャプチャし、ローカルOCRで読みを抽出し、日本語テキストの上にふりがなを表示します。メイン版に加えて、SteamOS向けに操作を絞ったブランチがあります。',
+            'Giina は選択した画面範囲をキャプチャし、端末内のOCRで読みを抽出して、日本語テキスト上にふりがなを表示します。メイン版に加えて、SteamOS向けに操作を絞ったブランチがあります。',
           highlights: [
-            'Python、PaddleOCR、fugashi、pykakasi、辞書データを使うローカルOCRパイプライン。',
+            'Python、PaddleOCR、fugashi、pykakasi、辞書データによるローカルOCRパイプライン。',
             'Electron の透明ウィンドウ、preload bridge、ホットキー、保存済み範囲、ログ診断。',
-            'SteamOSブランチでは F8 範囲選択、F9 OCR更新、F10終了、小さなステータス表示に整理。'
+            'SteamOSブランチでは F8 範囲選択、F9 OCR更新、F10 終了、小さなステータス表示に整理。'
           ],
           stackCards: [
             { title: 'Electron', text: 'ウィンドウ、ホットキー、キャプチャ、ログ、IPC。' },
             { title: 'React/Vite', text: 'オーバーレイ、状態表示、範囲選択UI。' },
-            { title: 'Python/PaddleOCR', text: 'ローカルOCR worker と画像内テキスト抽出。' },
+            { title: 'Python/PaddleOCR', text: 'ローカルOCRワーカーと画像内テキスト抽出。' },
             { title: 'fugashi/pykakasi', text: '日本語の読み抽出と辞書補助。' }
           ],
-          flow: ['範囲選択', '座標保存', '画像取得', 'OCR worker', '読み抽出', 'overlay表示'],
+          flow: ['範囲選択', '座標保存', '画像取得', 'OCRワーカー', '読み抽出', 'オーバーレイ表示'],
           strengths: [
-            '画像を外部サービスに送らないローカル処理。',
+            '画像やテキストを外部サービスに送らないローカル処理。',
             'ゲーム中に繰り返し使いやすい小さな操作。',
             'SteamOS の制限を明記し、未検証部分を隠していない。'
           ],
           limits: [
             '排他フルスクリーンは非対応。',
             'SteamOS Desktop Mode を最初の対象にしている。',
-            'Game Mode の重なり表示は Steam Deck 実機検証が必要。'
+            'Game Mode のオーバーレイ表示は Steam Deck 実機検証が必要。'
           ],
           media: [
             { type: 'image', title: 'Giina control window', src: '/project-media/giina/main.png', alt: 'Giina control window' },
@@ -478,31 +478,31 @@ export const content = {
         {
           id: 'laila',
           title: 'Laila',
-          objective: '無音の到着通知に使う Wear OS 目的地アラーム。',
+          objective: '音を出せない移動中のための Wear OS 目的地アラーム。',
           status: 'Wear OS 向けプロトタイプ v0.3.0。',
           platforms: 'Wear OS。',
           meta: ['プロトタイプ v0.3.0', 'Wear OS', '目的地トラッキング'],
           body: [
-            'Laila は、音を出しにくい移動中に使う Wear OS アプリです。目的地を選び、到着半径を設定し、追跡を開始すると、目的地の範囲に入った時に時計が振動します。',
-            '画面は **Kotlin** と **Jetpack Compose** で作り、小さな時計画面に合わせています。目的地選択には **osmdroid** と **OpenStreetMap**、検索には **Android Geocoder**、位置確認と振動にはフォアグラウンド **TripService** を使います。',
-            '保存済み目的地と最近の目的地で繰り返し利用しやすく、GeoMath、TripRules、TrackingCadence を分けて中心ロジックを確認しやすくしています。GPS精度、通知権限、振動、バッテリー動作は Wear OS 実機での検証が必要です。'
+            'Laila は、公共交通機関など音を出しにくい場面で使う Wear OS アプリです。目的地を選び、到着半径を設定し、追跡を開始すると、目的地の範囲に入った時に時計が振動します。',
+            'UI は **Kotlin** と **Jetpack Compose** で構成し、小さな時計画面に合わせています。目的地選択には **osmdroid** と **OpenStreetMap**、検索には **Android Geocoder**、位置確認と振動にはフォアグラウンド **TripService** を使います。',
+            '保存済み目的地と最近の目的地で繰り返し利用しやすくし、GeoMath、TripRules、TrackingCadence を分離して中心ロジックを確認しやすくしています。GPS精度、通知権限、振動、バッテリー動作は Wear OS 実機での検証が必要です。'
           ],
           description:
-            'Laila は音を出しにくい移動中に使う小さな時計アプリです。目的地と半径を選び、追跡を開始すると、到着時に振動で知らせます。',
+            'Laila は音を出しにくい移動中に使う小さな時計アプリです。目的地と半径を選んで追跡を開始すると、到着時に振動で知らせます。',
           highlights: [
-            'Wear OS Compose UI、地図ピッカー、検索、保存先、最近の目的地、半径設定。',
+            'Wear OS Compose UI、地図ピッカー、検索、保存済み目的地、最近の目的地、半径設定。',
             'TripService が追跡状態を配信し、TripRules の到着判定で振動を起動。',
             '距離に応じた確認間隔で、遠い時の不要なGPS確認を減らす。'
           ],
           stackCards: [
-            { title: 'Kotlin/Compose', text: 'Wear OS 向けの設定、保存先、追跡画面。' },
+            { title: 'Kotlin/Compose', text: 'Wear OS 向けの設定、保存済み目的地、追跡画面。' },
             { title: 'osmdroid/OpenStreetMap', text: '目的地選択と半径表示。' },
             { title: 'Android Geocoder', text: '場所検索と座標変換。' },
             { title: 'TripService', text: 'フォアグラウンド追跡、距離確認、振動。' }
           ],
-          flow: ['場所選択', '半径設定', 'service開始', '確認間隔調整', '到着判定', '振動'],
+          flow: ['場所選択', '半径設定', 'サービス開始', '確認間隔調整', '到着判定', '振動'],
           strengths: [
-            '小さな時計画面に合う単機能アプリ。',
+            '小さな時計画面でも使いやすい単機能アプリ。',
             'GeoMath、TripRules、TrackingCadence を分離してテストしやすい。',
             '保存済み/最近の目的地で繰り返し利用が速い。'
           ],
@@ -521,37 +521,37 @@ export const content = {
         {
           id: 'nportal',
           title: 'NPortal',
-          objective: 'CV、プロジェクト、ホームラボをまとめる二言語ポートフォリオ。',
+          objective: '履歴書、プロジェクト事例、ホームラボをまとめる二言語ポートフォリオ。',
           status: '開発中。',
           platforms: 'Web。Docker または Vercel にデプロイ。',
           meta: ['静的 React/Vite サイト', '二言語コンテンツ', 'Docker / Vercel 確認経路'],
           body: [
-            'NPortal はこのポートフォリオを支えるサイトです。CV、プロジェクト事例、スクリーンショット、ホームラボ情報を一つの二言語データモデルにまとめています。',
-            'フロントエンドは **React 19**、静的ビルドは **Vite**、表示は通常のCSSで構成しています。`npm run build`、**Docker** プレビュー、Vercel 用ブランチへの反映まで同じ流れで確認できます。',
-            'このプロジェクトでは、コンテンツ構造、再利用できる表示部品、二言語対応、ローカル確認からデプロイまでの流れを見せています。制限として、スクリーンショットは静的アセットであり、日本語文は公開前に最終確認した方がよいです。'
+            'NPortal はこのポートフォリオサイトの基盤です。履歴書、プロジェクト事例、スクリーンショット、ホームラボ情報を一つの二言語データモデルにまとめています。',
+            'フロントエンドは **React 19**、静的ビルドは **Vite**、表示は素のCSSで構成しています。`npm run build`、**Docker** プレビュー、Vercel 用ブランチへの反映まで同じ流れで確認できます。',
+            'このプロジェクトでは、コンテンツ構造、再利用可能な表示部品、二言語対応、ローカル確認からデプロイまでの流れを見せています。制限として、スクリーンショットは静的アセットであり、日本語文は公開前に最終確認しておく方が安全です。'
           ],
           description:
-            'NPortal はこのサイトです。React/Vite で作られ、CV、プロジェクト事例、スクリーンショット、ホームラボ情報を一つの二言語データモデルで管理しています。',
+            'NPortal はこのサイト自体です。React/Vite で作られ、履歴書、プロジェクト事例、スクリーンショット、ホームラボ情報を一つの二言語データモデルで管理しています。',
           highlights: [
             'ブラウザ言語検出と手動切替に対応した英語/日本語コンテンツ。',
-            'CV行、プロジェクト事例、スクリーンショット、ホームラボタブを再利用コンポーネントで表示。',
+            '履歴書の行、プロジェクト事例、スクリーンショット、ホームラボタブを再利用コンポーネントで表示。',
             'Vite の静的ビルド、ローカルプレビュー、Docker、Vercel デプロイに対応。'
           ],
           stackCards: [
             { title: 'React 19', text: '共有二言語コンテンツから各ページを表示。' },
-            { title: 'Vite', text: 'preview、Docker、Vercel 向けの静的ビルド。' },
-            { title: 'CSS', text: 'ノート風CV画面とコンパクトな事例ページ。' },
+            { title: 'Vite', text: 'プレビュー、Docker、Vercel 向けの静的ビルド。' },
+            { title: 'CSS', text: 'ノート風の履歴書画面とコンパクトな事例ページ。' },
             { title: 'Docker/Vercel', text: 'ローカル本番確認とデプロイ先。' }
           ],
-          flow: ['content編集', 'Vite build', 'preview確認', 'commit', 'development push', 'vercel push'],
+          flow: ['コンテンツ編集', 'Vite build', 'プレビュー確認', 'commit', 'development push', 'vercel push'],
           strengths: [
             'ポートフォリオ内容が一箇所にまとまっている。',
             'スクリーンショットを動的な数で追加できる。',
-            '同じコンテンツモデルでCV、プロジェクト、ホームラボ、テストページを管理できる。'
+            '同じコンテンツモデルで履歴書、プロジェクト、ホームラボ、テストページを管理できる。'
           ],
           limits: [
             'スクリーンショットは静的アセットなので、大きなUI変更後に更新が必要。',
-            '日本語文は公開前に自然さをレビューした方がよい。',
+            '日本語文は公開前に自然さを確認した方がよい。',
             '静的サイトのためCMSや分析バックエンドは含まない。'
           ],
           media: []
